@@ -1,0 +1,34 @@
+Ti.UI.setBackgroundColor("#000");
+
+var mainWindow = Ti.UI.createWindow({
+	title: "My Main Window",
+	backgroundColor: "#fff",
+	backgroundRepeat: true
+});
+
+var myMainView = Ti.UI.createView({
+	backgroundColor: "#000",
+	height: 40,
+	top: 30,
+	left: 20,
+	right: 20
+});
+
+var mySecondView = Ti.UI.createWindow({
+	backgroundColor: "green",
+	bottom: 40,
+	left: 10,
+});
+
+var myMainText = Ti.UI.createLabel({
+	text: "Welcome to the Thunderdome!",
+	color: "#fff",
+	font: {fontSize: 16, fontFamily: "Helvetica", fontWeight: "bold", fontStyle: "underline"},
+	top: 10,
+	left: 10
+});
+
+
+mainWindow.add(myMainView);
+myMainView.add(myMainText);
+mainWindow.open();
