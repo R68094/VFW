@@ -1,6 +1,5 @@
 Ti.UI.setBackgroundColor("#000");
 
-var weapons = ["I choose a sword","I choose a bow","I choose a lance","I choose a dagger","I choose a staff","I choose a wand"];
 
 var mainWindow = Ti.UI.createWindow({
 	title: "My Main Window",
@@ -27,9 +26,19 @@ var nextButton = Ti.UI.createView({
 	backgroundColor: "23ba00",
 	top: mySecondView.top + mySecondView.length + 20,
 	height: 50,
-	left: 20,
-	right: 20
+	right: 20,
+	width: 100
 });
+
+var previousButton = Ti.UI.createView({
+	backgroundColor: "23ba00",
+	top: mySecondView.top + mySecondView.length + 20,
+	height: 50,
+	left: 20,
+	width: 100
+});
+
+
 
 var myMainText = Ti.UI.createLabel({
 	text: "Welcome to the Thunderdome!",
@@ -55,26 +64,18 @@ var nextButtonText = Ti.UI.createLabel({
 	textAlign: "center"
 });
 
-var nextWeapon = function(){
-	secondViewText.hide;
-	
-	for(var i=0, j=weapons.length; i<j; i++){
-		var weaponText = Ti.UI.createLabel({
-			text: weapons[i],
-			backgroundColor: "#fff",
-			color: "#000",
-			font: {fontSize: 14, fontFamily: "Arial", fontWeight: "bold"},
-			textAlign: "center"
-		});	
-		mainWindow.add(weaponText);
-	}
-};
+var previousButtonText = Ti.UI.createLabel({
+	text: "Previous Button",
+	color:"#fff",
+	font: {fontSize: 12, fontFamily: "Arial", fontWeight: "bold"},
+	textAlign: "center"
+});
 
-nextButton.addEventListener("click", nextWeapon);
+var loadJs = require("weapon");
 
-
-mainWindow.add(myMainView,mySecondView,previousButton,nextButton);
+mainWindow.add(myMainView,mySecondView,nextButton,previousButton);
 myMainView.add(myMainText);
 mySecondView.add(secondViewText);
+previousButton.add(previousButtonText);
 nextButton.add(nextButtonText);
 mainWindow.open();
