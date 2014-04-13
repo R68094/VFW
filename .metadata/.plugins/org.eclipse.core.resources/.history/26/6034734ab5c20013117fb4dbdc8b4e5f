@@ -1,0 +1,110 @@
+
+var weapons = {
+	"melee":{
+		"theTitle": "Melee Weapons",
+		"weaponList": [
+		{
+			"name": "Sword",
+			"description": "A brute force weapon used for hacking and slashing."
+		},	
+		{	"name": "Dagger",	
+			"description": "A small subtle weapon used from various weak points on an enemey for sudden devasting blows to vital organs."
+		},
+		{	"name": "Fists",
+			"description": "A true warrior uses only his fists to deal blunt damage to a worthy foe."	
+		}
+		
+	]
+},
+	"ranged":{
+		"theTitle": "Ranged Weapons",
+		"weaponList": [
+		{
+			"name": "Bow",
+			"description": "A silent ranged weapon for skilled warriors to attack vital spots on an enemy with light armor."
+		},	
+		{	"name": "Gun",	
+			"description": "A loud all be it powerful ranged weapon used to blow enemies with the heaviest of armor away."
+		},
+		{	"name": "Wand",
+			"description": "A mystical and terrifying weapon wielded by only the intellectually capable and magically inclined warrior to cast spells on enemies."	
+		}
+		
+	]
+	}	
+};
+
+
+
+
+
+
+
+
+// Main JS file
+
+var mainWindow = Ti.UI.createWindow({
+	title: "Weapons",
+	backgroundColor: "#fff"
+});
+
+var navWindow = Ti.UI.iOS.createNavigationWindow({
+	window: mainWindow,
+});
+
+var getDescription = function(){
+	var descriptionWindow = Ti.UI.createWindow({
+		title: this.text,
+		backgroundColor: "#fff",
+	});
+	var detailtext = Ti.UI.createLabel({
+		text: this.description,
+		top: 20,
+		left: 15,
+		right: 15,
+	});
+	descriptionWindow.add(descriptionText);
+	navWindow.openWindow(descriptionWindow);
+
+};
+
+var makeTable = function(){
+	var spacing = 60;
+	for(i in weapons){
+		var titleLabel = Ti.UI.createLabel({
+			text: weapons[i].theTitle,
+			left: 10,
+			right: 10,
+			top: spacing,
+			height: 20,
+			backgroundColor: "#000",
+			font: {fontSize: 18, fontFamily: "Arial"},
+			color: "#fff",
+		});
+		spacing = titleLabel.top + titleLabel.height + 15;
+		console.log(spacing);
+		for(i in weapons[j].weaponsList){
+			var weaponLabel = Ti.UI.createLabel({
+				text: weapons[i].weaponsList[j].name,
+				details: weapons[i].weaponsList[j].description,
+				left: 20,
+				right: 20,
+				top: spacing,
+				height: 20,
+				backgroundColor: "#000",
+				font: {fontSize: 14, fontFamily: "Arial"},
+				color: "#fff"
+			});
+			mainWindow.add(weaponLabel);
+			spacing = weaponLabel.top + weaponLabel.height + 10; 
+			weaponsLabel.addEventListener("click", getDescription);
+		}
+		mainWindow.add(weaponLabel);
+		spacing = weaponLabel.top + weaponLabel.height + 30;
+	}	
+};
+
+
+
+makeTable();
+navWindow.open();

@@ -1,0 +1,34 @@
+// Main JS file
+var weapons = [{title: "sword"}, {title: "dagger"}, {title: "fists"}, {title: "bow"}, {title: "gun"}, {title: "wand"}];
+
+var mainWindow = Ti.UI.createWindow({
+	backgroundColor: "#fff"
+});
+
+var topView = Ti.UI.createView({
+	height: 50,
+	backgroundColor: "#fff",
+	top: 0,	
+});
+
+var topViewBorder = Ti.UI.createView({
+	backgroundColor: "#dbdbdb",
+	height: 2,
+	top: topView.height + topView.top
+});
+
+var topViewLabel = Ti.UI.createLabel({
+	text: "Weapons of War",
+	font: {fontSize: 18, fontFamily: "Arial", fontWeight: "Bold"},
+	top: 25,
+	textAlign: "center",
+});
+
+var weapons = Ti.UI.createTableView({
+	data: weapons,
+	top: topViewBorder.top + topViewBorder.height + 10,
+});
+
+topView.add(topViewLabel);
+mainWindow.add(topView, topViewBorder, weapons);
+mainWindow.open();
