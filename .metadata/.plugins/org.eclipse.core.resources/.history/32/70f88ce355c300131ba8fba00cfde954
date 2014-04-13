@@ -74,7 +74,6 @@ var makeTable = function(){
 				right: 15,
 				top: spacing,
 				height: 20,
-				hasChild: true,
 				backgroundColor: "#fff",
 				font: {fontSize: 12, fontFamily: "arial"},
 				color: "#000",
@@ -88,5 +87,4 @@ var makeTable = function(){
 	}
 };
 
-makeTable();
 

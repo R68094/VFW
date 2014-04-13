@@ -1,4 +1,3 @@
-// Json Data
 
 var weapons = {
 	"Melee":{
@@ -34,6 +33,20 @@ var weapons = {
 	]
 	}	
 };
+
+
+
+
+
+
+var mainWindow = Ti.UI.createWindow({
+	title: "Weapons of War",
+	backgroundColor: "gray"
+});
+
+var navWindow = Ti.UI.iOS.createNavigationWindow({
+	window: mainWindow
+});
 
 var getSpecs = function(){
 	var specWindow = Ti.UI.createWindow({
@@ -89,4 +102,4 @@ var makeTable = function(){
 };
 
 makeTable();
-
+navWindow.open();

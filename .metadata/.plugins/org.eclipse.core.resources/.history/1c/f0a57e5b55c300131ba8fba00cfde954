@@ -8,7 +8,7 @@ var navWindow = Ti.UI.iOS.createNavigationWindow({
 	window: mainWindow
 });
 
-var loadFile = require ("weapons");
+var loadFile = require("weapons");
 
-
+makeTable();
 navWindow.open();

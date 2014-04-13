@@ -1,4 +1,3 @@
-// Json Data
 
 var weapons = {
 	"Melee":{
@@ -35,6 +34,20 @@ var weapons = {
 	}	
 };
 
+
+
+
+
+
+var mainWindow = Ti.UI.createWindow({
+	title: "Weapons of War",
+	backgroundColor: "gray"
+});
+
+var navWindow = Ti.UI.iOS.createNavigationWindow({
+	window: mainWindow
+});
+
 var getSpecs = function(){
 	var specWindow = Ti.UI.createWindow({
 		title: this.text,
@@ -47,7 +60,7 @@ var getSpecs = function(){
 		right: 15,
 	});
 	specWindow.add(specText);
-	navWindow.openWindow(specWindow);
+	navWindow.openWindow(specText);
 };
 
 
@@ -74,7 +87,6 @@ var makeTable = function(){
 				right: 15,
 				top: spacing,
 				height: 20,
-				hasChild: true,
 				backgroundColor: "#fff",
 				font: {fontSize: 12, fontFamily: "arial"},
 				color: "#000",
@@ -89,4 +101,4 @@ var makeTable = function(){
 };
 
 makeTable();
-
+navWindow.open();
