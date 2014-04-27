@@ -1,0 +1,21 @@
+var imageFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "Images");
+var imageFile = imageFolder.getDirectoryListing();
+
+
+var mainWindow = Ti.UI.createWindow({
+	backgroundColor: "#fff"
+});
+
+var navWindow = Ti.UI.iOS.createNavigationWindow({
+	window: mainWindow
+});
+
+var nextButton = Ti.UI.createView({
+	backgroundColor: "23ba00",
+	bottom: 0,
+});
+
+var loadFile = require ("gallery");
+
+
+navWindow.open();

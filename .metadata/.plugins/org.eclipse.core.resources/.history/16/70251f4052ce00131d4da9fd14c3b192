@@ -1,0 +1,2 @@
+var imageFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourceDirectory, "Images");
+var imageFile = imageFolder.getDirectoryListing();

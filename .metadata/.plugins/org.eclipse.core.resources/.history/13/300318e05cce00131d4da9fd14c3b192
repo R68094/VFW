@@ -1,0 +1,12 @@
+
+var mainWindow = Ti.UI.createWindow({
+	backgroundColor: "#fff"
+});
+
+var navWindow = Ti.UI.iOS.createNavigationWindow({
+	window: mainWindow
+});
+
+var loadFile = require("gallery");
+
+navWindow.open();

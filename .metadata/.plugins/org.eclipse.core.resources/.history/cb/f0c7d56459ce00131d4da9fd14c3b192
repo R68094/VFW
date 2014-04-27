@@ -1,0 +1,33 @@
+var imageFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "Images");
+var imageFile = imageFolder.getDirectoryListing();
+
+
+var mainWindow = Ti.UI.createWindow({
+	backgroundColor: "#fff"
+});
+
+var navWindow = Ti.UI.iOS.createNavigationWindow({
+	window: mainWindow
+});
+
+var galButton = Ti.UI.createView({
+	title: "Main Menu",
+	backgroundColor: "23ba00",
+	height: 50,
+	bottom: 0,
+});
+
+
+var galButtonText = Ti.UI.createLabel({
+	text: "Gallery",
+	color:"#fff",
+	font: {fontSize: 12, fontFamily: "Arial", fontWeight: "bold"},
+	textAlign: "center"
+});
+
+
+var loadFile = require("gallery");
+
+galButton.add(galButtonText);
+navWindow.add(galButton);
+navWindow.open();

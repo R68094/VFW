@@ -1,0 +1,34 @@
+var pWidth = Ti.Platform.displayCaps.platformWidth;
+var pHeight = Ti.Platform.displayCaps.platformheight;
+var rowCount = 4;
+var margin = 10;
+var canvas = pWidth*pHeight;
+var size = (pWidth - margin*3/3);
+
+var makeGallery = function(){
+	for(var i=0; i<imageFile; i++){
+		var view = Ti.UI.createView({
+		backgroundColor: "#fff",
+		top: margin,
+		left: margin,
+		width: size,
+		height: size,
+	});
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+galButton.addEventListener("click", makeGallery);

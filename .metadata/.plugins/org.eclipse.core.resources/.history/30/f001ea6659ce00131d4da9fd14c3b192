@@ -1,0 +1,24 @@
+var pWidth = Ti.Platform.displayCaps.platformWidth;
+var pHeight = Ti.Platform.displayCaps.platformheight;
+var rowCount = 4;
+var margin = 10;
+var canvas = pWidth*pHeight;
+var size = (pWidth - margin*3/3);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+galButton.addEventListener("click", makeGallery);
