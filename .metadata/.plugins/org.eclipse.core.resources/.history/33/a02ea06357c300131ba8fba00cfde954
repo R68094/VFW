@@ -1,0 +1,53 @@
+// Json Data
+
+var weapons = {
+	"Melee":{
+		"theTitle": "Melee Weapons",
+		"weaponList": [
+		{
+			"name": "Sword",
+			"description": "A brute force weapon used for hacking and slashing."
+		},	
+		{	"name": "Dagger",	
+			"description": "A small subtle weapon used from various weak points on an enemey for sudden devasting blows to vital organs."
+		},
+		{	"name": "Fists",
+			"description": "A true warrior uses only his fists to deal blunt damage to a worthy foe."	
+		}
+		
+	]
+},
+	"Ranged":{
+		"theTitle": "Ranged Weapons",
+		"weaponList": [
+		{
+			"name": "Bow",
+			"description": "A silent ranged weapon for skilled warriors to attack vital spots on an enemy with light armor."
+		},	
+		{	"name": "Gun",	
+			"description": "A loud all be it powerful ranged weapon used to blow enemies with the heaviest of armor away."
+		},
+		{	"name": "Wand",
+			"description": "A mystical and terrifying weapon wielded by only the intellectually capable and magically inclined warrior to cast spells on enemies."	
+		}
+		
+	]
+	}	
+};
+
+var getSpecs = function(){
+	var specWindow = Ti.UI.createWindow({
+		title: this.text,
+		backgroundColor: "#fff"
+	});
+	var specText = Ti.UI.createLabel({
+		text: this.details,
+		top: 35,
+		left: 15,
+		right: 15,
+	});
+	specWindow.add(specText);
+	navWindow.openWindow(specWindow);
+};
+
+
