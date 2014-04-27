@@ -10,7 +10,7 @@ var makeGallery = function(){
 	});
 	
 	var galleryView = Ti.UI.createScrollView({
-		backgroundColor: "#fff",
+		backgroundColor: "#000",
 		layout: "horizontal",
 		width: phoneWidth,
 		contentWidth: phoneWidth,

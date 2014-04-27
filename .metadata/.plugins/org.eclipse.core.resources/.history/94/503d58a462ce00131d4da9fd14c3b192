@@ -2,9 +2,12 @@ var makeGallery = function(){
 	var phoneWidth = Ti.Platform.displayCaps.platformWidth;
 	var phoneHeight = Ti.Platform.displayCaps.platformHeight;
 	var margin = 10;
+	var imagesFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "Images");
+	var imagesFile = imagesFolder.getDirectoryListing();
 	var rows = 4;
 	var objectWidth = (phoneWidth / rows) - margin*2;
 	var objectHeight = (phoneHeight / 8) - margin;
+	
 	var galleryWindow = Ti.UI.createWindow({
 		title: "Gallery",
 	});
@@ -24,7 +27,7 @@ var makeGallery = function(){
 		left: margin,
 		width: objectWidth,
 		height: objectHeight,
-		names: imagesFile[i],
+		names: imageNames[i],
 		});
 	
 	galleryView.add(imageViews);
@@ -36,7 +39,7 @@ var getImage = function(event){
 	title: event.source.names,
 	backgroundColor: "#fff",
 	});
-
+};
 
 var largeImage = Ti.UI.createImageView({
 	image: event.source.image,
@@ -44,12 +47,7 @@ var largeImage = Ti.UI.createImageView({
 
 imageWindow.add(largeImage);
 mainNav.openWindow(imageWindow);
-};
-
 galleryView.addEventListener("click", getImage);
-
-galleryWindow.add(galleryView);
-mainNav.openWindow(galleryWindow);
-};
-
+makeGallery.add(galleryView);
+mainNav.openWindow(makeGallery);
 galButton.addEventListener("click", makeGallery);

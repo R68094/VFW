@@ -2,9 +2,12 @@ var makeGallery = function(){
 	var phoneWidth = Ti.Platform.displayCaps.platformWidth;
 	var phoneHeight = Ti.Platform.displayCaps.platformHeight;
 	var margin = 10;
+	var imagesFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "Images");
+	var imagesFile = imagesFolder.getDirectoryListing();
 	var rows = 4;
 	var objectWidth = (phoneWidth / rows) - margin*2;
 	var objectHeight = (phoneHeight / 8) - margin;
+	
 	var galleryWindow = Ti.UI.createWindow({
 		title: "Gallery",
 	});
