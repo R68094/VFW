@@ -1,8 +1,4 @@
-var imagesFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "Images");
-	var imagesFile = imagesFolder.getDirectoryListing();
-
 var makeGallery = function(){
-
 	var phoneWidth = Ti.Platform.displayCaps.platformWidth;
 	var phoneHeight = Ti.Platform.displayCaps.platformHeight;
 	var margin = 10;
@@ -24,14 +20,12 @@ var makeGallery = function(){
 		showVerticalScrollIndicator: true,
 	});
 	
-	for(var i=0; i<imagesFile.length; i++){
+	for(var i=0; i<imagesFile; i++){
 	console.log("looping images");
 		var imageViews = Ti.UI.createImageView({
 		image: "Images/" + imagesFile[i],
-		borderRadius: 4,
 		top: margin,
 		left: margin,
-		right: margin,
 		width: objectWidth,
 		height: objectHeight,
 		names: imagesFile[i],
@@ -59,6 +53,6 @@ galleryView.addEventListener("click", getImage);
 
 galleryWindow.add(galleryView);
 mainNav.openWindow(galleryWindow);
-};
+
 
 galButton.addEventListener("click", makeGallery);

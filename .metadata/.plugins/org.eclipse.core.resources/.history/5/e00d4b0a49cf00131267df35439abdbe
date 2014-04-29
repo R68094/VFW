@@ -1,3 +1,4 @@
+Titanium.UI.setBackgroundColor("#fff");
 
 var imagesFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "Images");
 	var imagesFile = imagesFolder.getDirectoryListing();
