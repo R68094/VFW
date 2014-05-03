@@ -1,8 +1,4 @@
 
-var imagesFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "Images");
-	var imagesFile = imagesFolder.getDirectoryListing();
-	
-	
 var mainWin = Ti.UI.createWindow({
 	backgroundColor: "gray",
 	title: "Main Menu"
