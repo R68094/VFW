@@ -1,0 +1,43 @@
+var mainWin = Ti.UI.createWindow({
+	backgroundColor: "gray",
+	title: "Main Menu"
+});
+
+var mainNav = Ti.UI.iOS.createNavigationWindow({
+	window: mainWin
+});
+
+var galButton = Ti.UI.createView ({
+	backgroundColor: "#23ba00",
+	top: 25,
+	left: 20,
+	height: 50,
+	width: 100
+});
+
+var galButtonText = Ti.UI.createLabel({
+	text: "Weapon Gallery",
+	textAlign: "center",
+	color: "#fff",
+});
+
+var dataButton = Ti.UI.createView ({
+	backgroundColor: "#23ba00",
+	top: galButton.top + galButton.height + 25,
+	left: 20,
+	height: 50,
+	width: 100
+});
+
+var dataButtonText = Ti.UI.createLabel({
+	text: "Weapon Table",
+	textAlign: "center",
+	color: "#fff",
+});
+
+var loadJs = require ("gallery");
+
+dataButton.add(dataButtonText);
+galButton.add(galButtonText);
+mainWin.add(galButton,dataButton);
+mainNav.open();

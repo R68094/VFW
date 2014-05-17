@@ -1,0 +1,15 @@
+// event listener function
+var getSpecs = function(){
+	var specWindow = Ti.UI.createWindow({
+		title: this.text,
+		backgroundColor: "#fff"
+	});
+	var specText = Ti.UI.createLabel({
+		text: this.details,
+		top: 35,
+		left: 15,
+		right: 15,
+	});
+	specWindow.add(specText);
+	navWindow.openWindow(specWindow);
+};

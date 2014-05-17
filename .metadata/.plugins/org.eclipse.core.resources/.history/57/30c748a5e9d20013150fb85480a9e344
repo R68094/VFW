@@ -1,0 +1,50 @@
+var weapons = {
+	"Melee":{
+		"theTitle": "Weapons",
+		"weaponList": [
+		{
+			"name": "Cataclysm",
+			"description": "A weapon dropped by Archimonde in the Battle of Mount Hyjal!"
+		},	
+		{	"name": "Foam Sword",	
+			"description": "A suspicious sword of untold strength and terror. Looks Scary Enough???"
+		},
+		{	"name": "Quel'serrar",
+			"description": "A weapon forged in the fires of the dragon Onyxia, it has no equal."	
+		},
+		{	"name": "Thunderfury",
+			"description": "A legendary sword with unmatched nature power, sprays lightning on hit to enemies in range."
+		},
+		{	"name": "Zin'rohk",
+			"description": "A sword from the troll tribe of the Zandalari with massive power, which gave it the nickname Destroyer of Worlds!"
+		}
+
+	]	
+	}	
+};
+
+var makeTable = function(){
+	var weaponTable = Ti.UI.createTableViewSection({
+	headerTitle: weapons.theTitle,
+	footerTitle: "End of Weapons"
+});
+};
+
+for (var i=0, j=weapons.Melee.weaponList.length; i<j; i++){
+	var theRow = Ti.UI.createTableViewRow({
+		title: weapons.Melee.weaponList[i].name,
+		hasChild: true,
+	});
+	weaponTable.add(theRow);
+}
+
+var sectionArray = [makeTable];
+
+makeTable.setData(sectionArray);
+
+
+
+
+
+
+dataButton.addEventListener("click", );

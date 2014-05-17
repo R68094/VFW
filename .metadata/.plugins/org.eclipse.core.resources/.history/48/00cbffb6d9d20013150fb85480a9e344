@@ -1,0 +1,7 @@
+var weaponGallery = function() {
+	var galleryWindow = Ti.UI.createWindow({
+		backgroundColor: "white",
+		title: "Weapon Gallery"
+	});
+	
+};

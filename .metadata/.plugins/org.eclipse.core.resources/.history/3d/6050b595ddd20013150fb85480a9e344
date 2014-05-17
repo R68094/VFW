@@ -1,0 +1,48 @@
+var weaponGallery = function() {
+	var galleryWindow = Ti.UI.createWindow({
+		backgroundColor: "white",
+		title: "Weapon Gallery"
+	});
+var randomButton = Ti.UI.createButton({
+	backgroundColor: "",
+	title: "Random Image",
+	font: {fontSize: 20, fontFamily: "Arial"},	
+	color: "white",
+	bottom: 0,
+	height: 50,
+	width:"100%",
+});
+
+};
+
+var randomImageNumber = [];
+
+var numArray = function(number){
+	for(var i = 0; i<10; i++){
+		number[i] = i;
+	};
+	number.sort(function() {
+		return Math.random() - 0.5;
+	});
+	return number;
+};
+
+var imagesFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "Images");
+	var imagesFile = imagesFolder.getDirectoryListing();
+	
+	var getImage = function() {
+		var imageDelete = randomImageNumber.pop();
+		
+		console.log("*" + pop);
+		
+		var newImage = Ti.UI.createImageView({
+			image: "gallery/" + imagesFile[pop],
+			bottom: 50,
+		});
+		console.log(randomImageNumber);
+	};
+if (randomImageNumber.length === 1){
+	array(randomImageNumber);
+};
+
+weaponGallery.add(newImage);

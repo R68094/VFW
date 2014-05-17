@@ -1,0 +1,16 @@
+var weaponGallery = function() {
+	var galleryWindow = Ti.UI.createWindow({
+		backgroundColor: "white",
+		title: "Weapon Gallery"
+	});
+var randomButton = Ti.UI.createButton({
+	backgroundColor: "",
+	title: "Random Image",
+	font: {fontSize: 20, fontFamily: "Arial"},	
+	color: "white",
+	bottom: 0,
+	height: 50,
+	width:"100%",
+});
+
+};

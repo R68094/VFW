@@ -5,13 +5,13 @@ var weapons = {
 		"theTitle": "Melee Weapons",
 		"weaponList": [
 		{
-			"name": "Sword",
+			"title": "Sword",
 			"description": "A brute force weapon used for hacking and slashing."
 		},	
-		{	"name": "Dagger",	
+		{	"title": "Dagger",	
 			"description": "A small subtle weapon used from various weak points on an enemey for sudden devasting blows to vital organs."
 		},
-		{	"name": "Fists",
+		{	"title": "Fists",
 			"description": "A true warrior uses only his fists to deal blunt damage to a worthy foe."	
 		}
 		
@@ -21,13 +21,13 @@ var weapons = {
 		"theTitle": "Ranged Weapons",
 		"weaponList": [
 		{
-			"name": "Bow",
+			"title": "Bow",
 			"description": "A silent ranged weapon for skilled warriors to attack vital spots on an enemy with light armor."
 		},	
-		{	"name": "Gun",	
+		{	"title": "Gun",	
 			"description": "A loud all be it powerful ranged weapon used to blow enemies with the heaviest of armor away."
 		},
-		{	"name": "Wand",
+		{	"title": "Wand",
 			"description": "A mystical and terrifying weapon wielded by only the intellectually capable and magically inclined warrior to cast spells on enemies."	
 		}
 		
@@ -35,58 +35,78 @@ var weapons = {
 	}	
 };
 
-var getSpecs = function(){
-	var specWindow = Ti.UI.createWindow({
-		title: this.text,
-		backgroundColor: "#fff"
+
+// Main Code
+var weaponTable = Ti.UI.createTableView({
+	top: titleView.top + titleView.height + 10,
+});
+
+if (Ti.Platform.name === "iPhone OS"){
+	weaponTable.style = Ti.UI.iPhone.TableViewStyle.GROUPED;
+}
+
+
+var meleeSection = Ti.UI.createTableViewSection({
+	headerTitle: weapons.Melee.theTitle,
+	footerTitle: "For Adventurer's of close range combat!"
+});
+
+var rangedSection = Ti.UI.createTableViewSection({
+	headerTitle: weapons.Ranged.theTitle,
+	footerTitle: "For Adventurer's to damage from afar!"
+});
+
+// Description Info For Row Listener Function
+var getInfo = function(){
+	var infoWindow = Ti.UI.createWindow({
+		title: this.title,
+		backGroundColor: "#fff",
 	});
-	var specText = Ti.UI.createLabel({
-		text: this.details,
-		top: 35,
-		left: 15,
-		right: 15,
+	var infoText = Ti.UI.createLabel({
+		text: this.description,
 	});
-	specWindow.add(specText);
-	navWindow.openWindow(specWindow);
+	infoWindow.add(infoText);
+	navWindow.openWindow(infoWindow);
 };
 
-
-var makeTable = function(){
-	var spacing = 60;
-	for(i in weapons){
-		var makeLabel = Ti.UI.createLabel({
-			text: weapons[i].theTitle,
-			left: 15,
-			right: 15,
-			top: spacing,
-			height: 20,
-			backgroundColor: "#000",
-			font: {fontSize: 18, fontFamily: "arial"},
-			color: "#fff"
-		});
-		spacing = makeLabel.height + makeLabel.top + 10,
-		console.log(spacing);
-		for(j in weapons[i].weaponList){
-			var weaponLabel = Ti.UI.createLabel({
-				text: weapons[i].weaponList[j].name,
-				details: weapons[i].weaponList[j].description,
-				left: 30,
-				right: 15,
-				top: spacing,
-				height: 20,
-				hasChild: true,
-				backgroundColor: "#fff",
-				font: {fontSize: 12, fontFamily: "arial"},
-				color: "#000",
-			});
-			mainWindow.add(weaponLabel);
-			spacing = weaponLabel.top + weaponLabel.height + 10;
-			weaponLabel.addEventListener("click", getSpecs);
-		}
-		mainWindow.add(makeLabel);
-		spacing = weaponLabel.top + weaponLabel.height + 40;
-	}
+// For Loops Making Table Rows
+for(var i=0, j=weapons.Ranged.weaponList.length; i<j; i++){
+	var theRow = Ti.UI.createTableViewRow({
+		title: weapons.Ranged.weaponList[i].title,
+		hasChild: true
+	});
+	rangedSection.add(theRow);
+	theRow.addEventListener("click", getInfo);
 };
 
-makeTable();
+for(var i=0, j=weapons.Melee.weaponList.length; i<j; i++){
+	var theRow = Ti.UI.createTableViewRow({
+		title: weapons.Melee.weaponList[i].title,
+		hasChild: true
+	});
+	meleeSection.add(theRow);
+	theRow.addEventListener("click", getInfo);
+};
+
+var weaponSections = [rangedSection, meleeSection];
+
+weaponTable.setData(weaponSections);
+navWindow.add(weaponTable);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

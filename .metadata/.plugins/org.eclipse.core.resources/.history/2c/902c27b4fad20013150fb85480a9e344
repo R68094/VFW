@@ -1,0 +1,39 @@
+loadData = require ("datatable");
+
+
+var mainWin = Ti.UI.createWindow({
+	backgroundColor: "white",
+	title: "Main Menu"
+});
+
+var mainNav = Ti.UI.iOS.createNavigationWindow({
+	window: mainWin,
+});
+
+
+
+var dataButton = Ti.UI.createView ({
+	backgroundColor: "#23ba00",
+	top: 25,
+	left: 20,
+	height: 50,
+	width: 100
+});
+
+dataButton.addEventListener("click", dataWindow);
+
+var dataButtonText = Ti.UI.createLabel({
+	text: "Weapon Table",
+	textAlign: "center",
+	color: "#fff",
+});
+
+var dataTable = Ti.UI.createTableView({
+	backgroundColor: "white",
+});
+
+
+
+dataButton.add(dataButtonText);
+mainWin.add(dataButton);
+mainNav.open();

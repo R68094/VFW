@@ -1,0 +1,58 @@
+loadData = require ("datatable");
+
+
+var mainWin = Ti.UI.createWindow({
+	backgroundColor: "white",
+	title: "Main Menu"
+});
+
+var mainNav = Ti.UI.iOS.createNavigationWindow({
+	window: mainWin,
+});
+
+
+
+var dataButton = Ti.UI.createView ({
+	backgroundColor: "#23ba00",
+	top: 25,
+	left: 20,
+	height: 50,
+	width: 100
+});
+
+
+var dataButtonText = Ti.UI.createLabel({
+	text: "Weapon Table",
+	textAlign: "center",
+	color: "#fff",
+});
+
+var makePage = function(){
+var weaponView = Ti.UI.createTableView({
+	top:25,
+});
+
+var dataTable = Ti.UI.createTableViewSection({
+	backgroundColor: "white",
+});
+
+for(var i=0, j=weapons.melee.weaponList.length; i<j; i++){
+	var theRow = Ti.UI.createTableViewRow({
+		title: weapons.melee.weaponList[i].name
+	});	
+}
+};
+var weaponSections = [dataTable];
+
+weaponView.setData(weaponSections);
+
+dataButton.addEventListener('click', makePage);
+
+
+
+
+
+
+dataButton.add(dataButtonText);
+mainWin.add(dataButton);
+mainNav.open();

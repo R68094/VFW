@@ -25,7 +25,6 @@ var makeGallery = function(){
 	});
 	
 	for(var i=0; i<imagesFile.length; i++){
-	console.log("looping images");
 		var imageViews = Ti.UI.createImageView({
 		image: "Images/" + imagesFile[i],
 		borderRadius: 4,
